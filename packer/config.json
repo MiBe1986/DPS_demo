@@ -1,0 +1,47 @@
+{
+    "variables": {
+      "client_id": "INSERT HERE",
+      "client_secret": "INSERT HERE",
+      "subscription_id": "INSERT HERE"
+    },
+    "builders": [
+      {
+        "type": "azure-arm",
+        "managed_image_resource_group_name": "rg-image-store",
+        "managed_image_name": "iot-edge-base-image", 
+        "subscription_id": "INSERT HERE",
+        "client_id": "INSERT HERE",
+        "client_secret": "INSERT HERE",
+  
+        "os_type": "Linux",
+        "image_publisher": "Canonical",
+        "image_offer": "UbuntuServer",
+        "image_sku": "18.04-LTS",
+
+        "azure_tags": {
+          "dept": "Engineering",
+          "task": "Image deployment"
+        },
+        "ssh_username": "vm-admin",  
+        "location": "West Europe",
+        "vm_size": "Standard_DS2_v2"
+      }
+    ],
+    "provisioners": [
+        {
+            "type": "file",
+            "source": "./SymmetricKeyProvisioning",
+            "destination": "/tmp"
+        },
+        {
+          "type": "file",
+          "source": "./prov_vm.sh",
+          "destination": "/tmp/prov_vm.sh"
+      },
+        {
+            "type": "shell",
+            "script": "provisioning.sh"
+        }
+
+    ]
+}
