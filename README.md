@@ -2,7 +2,8 @@
 This repo contains a short demonstrator for infrastructure as code in order to demonstrate Azure DPS
 
 ## packer/config.json
-This ist the config.json for running "packer build config.json" which builds the image used in terraform
+This ist the config.json for running "packer build config.json" which builds the image used in terraform.
+Make sure to replace all **INSERT HERE** with your respective credentials, e.g., those of a service principal.
 
 ## packer/provisioning.sh
 shell script for installing iotedge/dotnet-sdk/dotnet-runtime in the image.
