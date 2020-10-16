@@ -1,9 +1,4 @@
 {
-    "variables": {
-      "client_id": "INSERT HERE",
-      "client_secret": "INSERT HERE",
-      "subscription_id": "INSERT HERE"
-    },
     "builders": [
       {
         "type": "azure-arm",
@@ -33,11 +28,6 @@
             "source": "./SymmetricKeyProvisioning",
             "destination": "/tmp"
         },
-        {
-          "type": "file",
-          "source": "./prov_vm.sh",
-          "destination": "/tmp/prov_vm.sh"
-      },
         {
             "type": "shell",
             "script": "provisioning.sh"
